@@ -8,4 +8,4 @@ Call: ```mod2mask --boundary 20 1.rec 1.mod```
 
 I recommend installing in a clean conda/mamba environment. 
 
-```pip install pip install 'git+https://github.com/bwmr/mod2mask.git'
+```pip install pip install 'git+https://github.com/bwmr/mod2mask.git'```
