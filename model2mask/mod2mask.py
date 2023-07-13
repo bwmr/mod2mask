@@ -46,7 +46,12 @@ def mod2mask(boundary, tomogram, modfile):
     
     # Fit planes
     [atop, btop, ctop] = utils.fit_plane(top)
-    [abot, bbot, cbot] = utils.fit_plane(bottom)    
+    [abot, bbot, cbot] = utils.fit_plane(bottom)
+
+    # Sanity check: how thick is the volume, what angle are the planes
+    
+    print(f'Thickness of {modfile.name} is estimated {round(utils.distance(atop, btop, ctop, abot, bbot, cbot, dims[2], dims[1])* angpix.x / 10)} nm.')
+    print(f'Top and bottom plane have an angle of {round(utils.angle(atop, btop, ctop, abot, bbot, cbot))} deg to each other. \n')
     
     # Very unelegant way to iterate over xy plane
     for i in range(0,dims[2]):

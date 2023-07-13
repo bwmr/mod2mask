@@ -1,4 +1,5 @@
 import functools
+import math
 
 import numpy as np
 import pandas as pd
@@ -84,3 +85,18 @@ def cross(a, b):
     return [a[1]*b[2] - a[2]*b[1],
             a[2]*b[0] - a[0]*b[2],
             a[0]*b[1] - a[1]*b[0]]
+
+
+def angle(a1, b1, c1, a2, b2, c2):
+    d = (a1*a2 + b1*b2 + c1*c2)
+    e1 = math.sqrt(a1*a1 + b1*b1 + c1*c1)
+    e2 = math.sqrt(a2*a2 + b2*b2 + c2*c2)
+    d = d / (e1*e2)
+    A = math.degrees(math.acos(d))
+    return A
+
+def distance(a1, b1, c1, a2, b2, c2, x, y):
+    z1 = plane(x, y, [a1, b1, c1])
+    z2 = plane(x, y, [a2, b2, c2])
+        
+    return z1-z2
