@@ -18,7 +18,7 @@ def parse_top_bottom(model: pd.DataFrame):
     for contour in model.contour_id.unique():
         if not len(model[model.contour_id == contour].index) == 2:
             raise ValueError(
-                f'Contour {contour} has {len(model[model.contour_id== contour].index)} points.')
+                f'Contour {int(contour)+1} has {len(model[model.contour_id== contour].index)} points.')
 
     # For each contour pair, check which one is top and which one is bottom
     # Output only xyz coordintes
